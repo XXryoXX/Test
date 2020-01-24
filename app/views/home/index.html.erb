@@ -1,0 +1,169 @@
+<html>
+<body>
+<!-- header -->
+<header>
+  <div class="header-top">
+    <div class="logo">
+      <img class=”header-image” alt="TOP image" src="/assets/logo3.png">
+    </div>
+
+  </div>
+  <ul class="nav-list">
+    <h2>
+      <li class="nav-list-item"><a href="#MOVIE">MUSIC&MOVIE</a></li>
+      <li class="nav-list-item"><a href="http://localhost:3000/members">MEMBER</a></li>
+      <li class="nav-list-item"><a href="http://localhost:3000/news">NEWS</a></li>
+      <li class="nav-list-item"><a href="http://localhost:3000/stores">STORE</a></li>
+      <li class="nav-list-item"><a href="">FANCLUB</a></li>
+      <% if person_signed_in? %>
+
+      <li class="nav-list-item"><%= link_to 'LOGOUT',destroy_person_session_path, method: :delete %></li>
+      <% else %>
+      <li class="nav-list-item"><%= link_to 'LOGIN', "people/sign_in" %></li>
+      <li class="nav-list-item"><%= link_to 'SIGNUP', "people/sign_up" %></li>
+      <!-- <li class="nav-list-item"><a href="http://localhost:3000/people/sign_up">SIGNUP</a></li> -->
+      <!-- <li class="nav-list-item"><a href="http://localhost:3000/people/sign_in">LOGIN</a></li> -->
+      <% end %>
+    </h2>
+  </ul>
+</header>
+
+
+<section>
+  <div class="top-image">
+    <img class="top-image_item" alt="TOP image" src="/assets/top_2.png" >
+  </div>
+
+
+  <div class="main-frame">
+
+    <div class="left-frame1">
+     <!-- <h2>MOVIE</h2>1 -->
+<h2><a name="MOVIE">MOVIE</a></h2>
+      <div class="left-box">
+        <ul>
+          <li>
+          <iframe id="ytplayer" type="text/html" width="600" height="400"
+          src="https://www.youtube.com/embed/hT0UDeFp27k?autoplay=1&origin=http://example.com"
+            frameborder="0">
+          </iframe>
+          <!-- <video src="sample-video.mp4" loop autoplay muted></video> -->
+          <!-- <li><a href=""><img alt="youtube image" src="/assets/youytube.jpg" class="movie"></a></li> -->
+         </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="right-frame2">
+      <h2>DIGEST</h2>
+      <div class="left-box">
+        <ul>
+          <li>
+          <iframe id="ytplayer" type="text/html" width="600" height="400"
+          src="https://www.youtube.com/embed/U0zTaEJpqdk?autoplay=1&origin=http://example.com"
+            frameborder="0">
+          </iframe>
+          </li>
+          <!-- <li><a href=""><img alt="youtube image" src="/assets/youytube.jpg" class="movie"></a></li> -->
+        </ul>
+      </div>
+      </div>
+    </div>
+
+<div class="main-frame">
+  <div class="left-frame">
+    <h2>NEWS</h2>
+    <div class="center-box">
+      <ul>
+        <font size="5" color="#000">
+        <% @news.each do |news| %>
+          <li>
+            <td><%= news.date %></td>
+            <td><%= link_to news.title, news %></td>
+            <!-- <td><%= news.title %></td> -->
+            <!-- <td><%= news.text %></td> -->
+            <!-- <td><%= news.category %></td> -->
+            <!-- <td><%= link_to 'Edit', edit_news_path(news) %></td> -->
+            <!-- <td><%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+          </li>
+        <% end %>
+        </font>
+          <!-- <li><h2 class="article-title">アルバムリリース</h2> -->
+          <!-- <p>＼TICKET PRESALE／<br/>12時よりプレイガイド最速先行販売開始!!!!!!</p></li> -->
+          <!-- <li><h2 class="article-title">アルバムリリース</h2> -->
+          <!-- <p>＼TICKET PRESALE／<br/>12時よりプレイガイド最速先行販売開始!!</p></li> -->
+          <!-- <li><h2 class="article-title">アルバムリリース</h2> -->
+          <!-- <p>＼TICKET PRESALE／<br/>12時よりプレイガイド最速先行販売開始!!</p></li> -->
+      </ul>
+      <h1><a class="more-button" href="http://localhost:3000/news">MORE <i class="fas fa-chevron-right"></i></a></h1>
+
+</div>
+</div>
+
+<div class="center-frame">
+  <h2>ITEM</h2>
+  <div class="center-box">
+    <ul>
+
+      <li><a href="http://localhost:3000/stores"><img alt="youtube image" src="/assets/item.jpg" class="movie"></a></li>
+
+    </ul>
+    <h1><a class="more-button" href="http://localhost:3000/stores">STORE <i class="fas fa-chevron-right"></i></a></h1>
+  </div>
+  </div>
+
+<div class="right-frame">
+  <!-- <h2>MOVIES</h2>
+  <div class="left-box">
+    <ul>
+      <li><a href=""><img alt="youtube image" src="/assets/youytube.jpg" class=""></a></li>
+
+    </ul>
+  </div> -->
+  <h2>FANCLUB</h2>
+  <div class="center-box">
+    <ul>
+  <% if person_signed_in? %>
+  <li><a href=""><img alt="" src="/assets/fanclub.png" class="movie"></a></li>
+
+  <% else %>
+  <!-- <li class="nav-list-item"><a href="http://localhost:3000/people/sign_up">SIGNUP</a></li> -->
+  <!-- <li class="nav-list-item"><a href="http://localhost:3000/people/sign_in">LOGIN</a></li> -->
+    <li><a href="http://localhost:3000/people/sign_in"><img alt="" src="/assets/Club.png" class="movie"></a></li>
+    </ul>
+  </div>
+  </div>
+</div>
+  <% end %>
+</section>
+
+<!-- サイトの中身部分 -->
+<div id="page_top"><%= link_to '', root_path %></div>
+<!-- footer -->
+<footer>
+  　　<ul class="footer-menu">
+  <li>MUSIC&MOVIE ｜</li>
+  <li>MEMBER ｜</li>
+  <li>NEWS ｜</li>
+  <li>STORE ｜</li>
+  <li>FANCLUB</li>
+</ul>
+　<ul class="footer-menu">
+
+<!-- <ul class="header-social"> -->
+  <li class="header-social_item">
+    <a href=""><i class="fab fa-facebook-square"></i></a>
+ </li>
+  <li class="header-social_item">
+    <a href=""><i class="fab fa-twitter-square"></i></a>
+  </li>
+  <li class="header-social_item">
+    <a href=""><i class="fab fa-youtube"></i></a>
+  </li>
+</ul>
+<!-- </ul> -->
+
+  <p>© All rights reserved by intern.</p>
+</footer>
+</body>
+</html>
